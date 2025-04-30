@@ -8,8 +8,8 @@ public class Ant : MonoBehaviour
     [SerializeField] Rigidbody2D rb;
     [SerializeField] float moveSpeed;
     bool readyToMove = true;
-    desire primaryDesiry;
-    [SerializeField]Dictionary<desire, float> desires = new Dictionary<desire, float>();
+    public desire primaryDesiry;
+    [SerializeField] public Dictionary<desire, float> desires = new Dictionary<desire, float>();
     [SerializeField] float lastTime;
     [SerializeField] float energyDropPerHour = 10f;
     [SerializeField] float foodDropPerHour = 10f;
@@ -113,7 +113,7 @@ public class Ant : MonoBehaviour
     {
 
     }
-    enum desire
+    public enum desire
     {
         none,
         food,
