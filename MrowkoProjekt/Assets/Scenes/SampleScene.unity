@@ -266,6 +266,8 @@ GameObject:
   m_Component:
   - component: {fileID: 562618620}
   - component: {fileID: 562618619}
+  - component: {fileID: 562618622}
+  - component: {fileID: 562618621}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -302,6 +304,35 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &562618621
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 562618618}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e5878fe5f34672f4f94f02dd8f2bb3aa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxWidth: 20
+  maxHeight: 10
+--- !u!114 &562618622
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 562618618}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6feea71bbb331bc418951613e7057589, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  foodPrefab: {fileID: 3289297809989543255, guid: 992690c2c96ff594dbe3be725a3d3dad, type: 3}
+  numberOfFood: 5
+  respawnDelayInHours: 0.5
 --- !u!1 &619394800
 GameObject:
   m_ObjectHideFlags: 0
@@ -399,7 +430,7 @@ GameObject:
   - component: {fileID: 887996600}
   - component: {fileID: 887996599}
   m_Layer: 0
-  m_Name: ResPoint (1)
+  m_Name: WorkPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -500,7 +531,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
-  m_Color: {r: 0.077186406, g: 0.023529435, b: 0.9607843, a: 1}
+  m_Color: {r: 0.9607843, g: 0, b: 0.023529435, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -650,7 +681,6 @@ GameObject:
   - component: {fileID: 2048222574}
   - component: {fileID: 2048222573}
   - component: {fileID: 2048222572}
-  - component: {fileID: 2048222571}
   - component: {fileID: 2048222575}
   m_Layer: 0
   m_Name: ResPoint
@@ -659,22 +689,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &2048222571
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2048222570}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0da61ffc1af724f46ad7abd6067b9992, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  instance: {fileID: 0}
-  antsInRestPoint: []
-  lastTime: 0
-  energyBoostPerHour: 30
 --- !u!58 &2048222572
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -756,7 +770,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
-  m_Color: {r: 0.9622642, g: 0.022694906, b: 0.022694906, a: 1}
+  m_Color: {r: 0.052838314, g: 0.023529435, b: 0.9607843, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0

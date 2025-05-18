@@ -14,5 +14,7 @@ public class ResPoint1 : AreaEffectPoint
         Ant script = obj.GetComponent<Ant>();
         Debug.Log("Regeneruje energie");
         script.desires[Ant.desire.energy] += energyBoostPerHour * deltaHours;
+        if (!script.CanApply(script.desires[Ant.desire.energy]))
+            script.desires[Ant.desire.energy] = script.maxDesire;
     }
 }

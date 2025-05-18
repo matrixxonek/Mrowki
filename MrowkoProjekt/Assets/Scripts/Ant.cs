@@ -13,12 +13,13 @@ public class Ant : MonoBehaviour
     [SerializeField] float lastTime;
     [SerializeField] float energyDropPerHour = 10f;
     [SerializeField] float foodDropPerHour = 10f;
+    [SerializeField] public float maxDesire;
     Vector2 currentDestination;
     bool hasDestination = false;
     void Start()
     {
-        desires[desire.energy] = 100f;
-        desires[desire.food] = 100f;
+        desires[desire.energy] = maxDesire;
+        desires[desire.food] = maxDesire;
         primaryDesiry = desire.none;
         lastTime = TimeManager.instance.currentTime;
         TimeManager.instance.OnTimeChanged += StatsUpdate;
@@ -87,13 +88,17 @@ public class Ant : MonoBehaviour
     void StatsUpdate(float currentTime)
     {
         float deltaHours = currentTime - lastTime;
-        if (deltaHours < 0) deltaHours += 24f; // przeskok przez pó³noc
-
-        desires[desire.food] -= foodDropPerHour * deltaHours;
-        desires[desire.energy] -= energyDropPerHour * deltaHours;
+        if (deltaHours < 0) deltaHours += 24f; // przeskok przez pó³noc 
+        if(desires[desire.food] > 0)
+            desires[desire.food] -= foodDropPerHour * deltaHours;
+        if (desires[desire.energy] > 0)
+            desires[desire.energy] -= energyDropPerHour * deltaHours;
         lastTime = currentTime;
     }
-
+    public bool CanApply(float desireValue)
+    {
+        return desireValue < maxDesire;
+    }
     void BaseMovement(Vector2 destination)
     {
         transform.position = Vector2.MoveTowards(transform.position, destination, moveSpeed * Time.fixedDeltaTime);
